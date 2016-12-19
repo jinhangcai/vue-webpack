@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from 'components/App.vue'
 import VueRouter from 'router'
 import tab from 'components/tab.vue'
+import 'stylus/test.css'
 //import 'bootstrap/dist/css/bootstrap.css'
 Vue.use(VueRouter)
 

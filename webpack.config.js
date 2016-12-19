@@ -43,7 +43,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css']
+        loader: 'style-loader!css-loader'
       }
     ]
   },
@@ -59,6 +59,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
       'components':path.join(__dirname , './src/components'),
+      'stylus':path.join(__dirname,'./src/stylus'),
       'router':"vue-router/dist/vue-router.js"
     }
   },
