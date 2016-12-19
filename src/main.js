@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from 'components/App.vue'
 import VueRouter from 'router'
-import tab from './tab.vue'
+import tab from 'components/tab.vue'
 //import 'bootstrap/dist/css/bootstrap.css'
 Vue.use(VueRouter)
 
@@ -16,7 +16,7 @@ var routers = new VueRouter({
   ]
 });
 var app = new Vue({
-  router:routers,
+  router:routers
   //render:h=>h(tab)
 }).$mount('#app');
 //new Vue({

@@ -58,6 +58,7 @@ module.exports = {
     //别名
     alias: {
       'vue$': 'vue/dist/vue.common.js',
+      'components':path.join(__dirname , './src/components'),
       'router':"vue-router/dist/vue-router.js"
     }
   },
@@ -79,7 +80,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
+      sourceMap: true, 
       compress: {
         warnings: false
       }
