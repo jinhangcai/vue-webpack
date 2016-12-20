@@ -1,5 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   //页面入口文件配置
   entry: './src/main.js',
@@ -43,11 +44,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader:ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
+      //loader: ExtractTextPlugin.extract({loader:"style-loader"},{ loader:"css-loader"})
       }
     ]
   },
   plugins:[
+    new ExtractTextPlugin("styles.css"),
     new webpack.ProvidePlugin({
       'window.jQuery': "jquery",
       jQuery: "jquery",

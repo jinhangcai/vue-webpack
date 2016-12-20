@@ -12,12 +12,23 @@
     <meta http-equiv="Expires" content="-1">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
+    <link rel="stylesheet" href="/src/stylus/test.css">
   </head>
+  <script>
+    (function(){
+      function o(){document.documentElement.style.fontSize=(document.documentElement.clientWidth>720?720:document.documentElement.clientWidth)/6.4+"px"}
+      var e=null;
+      window.addEventListener("resize",function(){clearTimeout(e),e=setTimeout(o,300)},!1),o()
+    })(window);
+  </script>
   <body>
     <div id="app">
-      <router-link to="/about" class="list-group-item">Go to about</router-link>
-      <router-link to="/home" class="list-group-item">Go to Home</router-link>
-      <router-link to="/home/abc" class="list-group-item">Go to :id</router-link>
+      <div class="router-link">
+        <router-link to="/about" class="list-group-item">首页</router-link>
+        <router-link to="/home" class="list-group-item">服务</router-link>
+        <router-link to="/home/abc" class="list-group-item">社区</router-link>
+        <router-link to="/home/abc" class="list-group-item">我的</router-link>
+      </div>
       <router-view></router-view>
     </div>
     <script src="/dist/build.js"></script>
