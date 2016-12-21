@@ -1,0 +1,194 @@
+.viewport {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+input,
+textarea,
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  border-radius: 0;
+  outline: 0;
+}
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+textarea {
+  outline: none;
+  resize: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+main {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]),
+[hidden] {
+  display: none;
+}
+a {
+  cursor: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  color: inherit;
+}
+.clear {
+  clear: both;
+}
+.clearfix:after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: '';
+}
+.page,
+.page > .viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+.page::-webkit-scrollbar,
+.page > .viewport::-webkit-scrollbar {
+  display: none;
+}
+.router-link {
+  width: 6.4rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #cfcbca;
+}
+.router-link a {
+  width: 1.6rem;
+  float: left;
+  height: 0.95rem;
+  text-align: center;
+  line-height: 0.95rem;
+  font-size: 0.24rem;
+  color: #373536;
+  background: #f4f0ef;
+}
