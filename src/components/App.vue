@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <div class="slider">
+    </div>
     <!--<img src="../images/logo.png">-->
     <!--<h1>{{ msg }}</h1>-->
     <!--<h2>Essential Links</h2>-->
@@ -37,7 +39,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 h1, h2 {
@@ -51,7 +52,7 @@ ul {
 
 li {
   display: inline-block;
-  margin: 0 10px;
+
 }
 
 a {

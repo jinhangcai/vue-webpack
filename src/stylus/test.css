@@ -76,6 +76,19 @@ body {
 ol,
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+li {
+  position: relative;
+  list-style: none;
 }
 table {
   border-collapse: separate;
@@ -186,9 +199,76 @@ a {
   width: 1.6rem;
   float: left;
   height: 0.95rem;
+  background: #f4f0ef;
+  position: relative;
+}
+.router-link a .bgImg1 {
+  background: url("../images/bomb.png") no-repeat;
+}
+.router-link a .bgImg2 {
+  background: url("../images/clock.png") no-repeat;
+}
+.router-link a .bgImg3 {
+  background: url("../images/coin.png") no-repeat;
+}
+.router-link a .bgImg4 {
+  background: url("../images/mario.png") no-repeat;
+}
+.router-link a .bgImg {
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  left: 0.6rem;
+  top: 0.1rem;
+  background-size: 100%;
+}
+.router-link a .title {
   text-align: center;
-  line-height: 0.95rem;
+  line-height: 1.4rem;
   font-size: 0.24rem;
   color: #373536;
-  background: #f4f0ef;
+}
+.router-link .router-link-active .title {
+  color: #f75555;
+}
+.slider {
+  width: 6.4rem;
+  height: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+.slider ul {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.slider ul li {
+  width: 6.4rem;
+  float: left;
+}
+.slider ul li img {
+  width: 100%;
+  height: 2rem;
+}
+.ols {
+  position: absolute;
+  bottom: 0.2rem;
+  right: 1rem;
+}
+.ols li {
+  float: left;
+  width: 0.12rem;
+  height: 0.12rem;
+  margin-right: 0.2rem;
+  background: #fff;
+  border-radius: 50%;
+}
+.ols .lis {
+  background: #f00;
+}
+.ulss {
+  display: -webkit-flex;
+  -webkit-flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  justify-content: center;
 }

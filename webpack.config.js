@@ -51,6 +51,7 @@ module.exports = {
   },
   plugins:[
     new ExtractTextPlugin("styles.css"),
+
     new webpack.ProvidePlugin({
       'window.jQuery': "jquery",
       jQuery: "jquery",
@@ -58,12 +59,16 @@ module.exports = {
     })
   ],
   resolve: {
+    //省略后缀
+    extensions: ['.js'],
     //别名
     alias: {
       'vue$': 'vue/dist/vue.common.js',
       'components':path.join(__dirname , './src/components'),
       'stylus':path.join(__dirname,'./src/stylus'),
-      'router':"vue-router/dist/vue-router.js"
+      'router':"vue-router/dist/vue-router.js",
+      'script':path.join(__dirname,'./src/script'),
+      'jquery':path.join(__dirname,'./src/script/jquery')
     }
   },
   //本地服务器配置

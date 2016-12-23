@@ -24,13 +24,21 @@
   <body>
     <div id="app">
       <div class="router-link">
-        <router-link to="/about" class="list-group-item">首页</router-link>
-        <router-link to="/home" class="list-group-item">服务</router-link>
-        <router-link to="/home/abc" class="list-group-item">社区</router-link>
-        <router-link to="/home/abc" class="list-group-item">我的</router-link>
+        <router-link to="/" class="list-group-item"><div class="bgImg bgImg1"></div><div class="title">首页</div></router-link>
+        <router-link to="/clock" class="list-group-item"><div class="bgImg bgImg2"></div><div class="title">服务</div></router-link>
+        <router-link to="/coin" class="list-group-item"><div class="bgImg bgImg3"></div><div class="title">社区</div></router-link>
+        <router-link to="/mario" class="list-group-item"><div class="bgImg bgImg4"></div><div class="title">我的</div></router-link>
       </div>
       <router-view></router-view>
     </div>
+    <input type="hidden" id="slideImgList"
+           value='[
+{"addTime":1478487564000,"color":"","fileName":"一元夺iphone7","fileTypeName":"积分商城首页banner","franchiseeId":1,"fullRedirectUrl":"https://mall.qian360.com/grabparticulars.html?types=7&id=1","fullShowUrl":"https://www.qian360.com/data/images/banner/1478487564338.png","id":303,"intro":"","locationUrl":"https://mall.qian360.com/grabparticulars.html?types=7&id=1","subType":",","url":"/data/images/banner/1478487564338.png"},
+{"addTime":1477289542000,"color":"","fileName":"一元夺宝开奖","fileTypeName":"积分商城首页banner","franchiseeId":1,"fullRedirectUrl":"https://mall.qian360.com/grab.html?id=1","fullShowUrl":"https://www.qian360.com/data/images/banner/mallBanner/1477289542686.png","id":311,"intro":"","locationUrl":"https://mall.qian360.com/grab.html?id=1","url":"/data/images/banner/mallBanner/1477289542686.png"},
+{"addTime":1478241755000,"color":"","fileName":"11.11，和女神脱“光”就靠它了！","fileTypeName":"积分商城首页banner","franchiseeId":1,"fullRedirectUrl":"https://bbs.qian360.com/posts/list/2840.page","fullShowUrl":"https://www.qian360.com/data/images/banner/mallBanner/1478241755362.png","id":325,"intro":"","locationUrl":"https://bbs.qian360.com/posts/list/2840.page","url":"/data/images/banner/mallBanner/1478241755362.png"},
+{"addTime":1475135305000,"color":"","fileName":"折疯了","fileTypeName":"积分商城首页banner","franchiseeId":1,"fullRedirectUrl":"http://0x3.me/oSF","fullShowUrl":"https://www.qian360.com/data/images/banner/mallBanner/1474442214703.png","id":297,"intro":"","locationUrl":"http://0x3.me/oSF","subType":",","url":"/data/images/banner/mallBanner/1474442214703.png"},
+{"addTime":1475135313000,"color":"","fileName":"如何赚积分","fileTypeName":"积分商城首页banner","franchiseeId":1,"fullRedirectUrl":"https://mall.qian360.com/ruleExplain.html","fullShowUrl":"https://www.qian360.com/data/images/banner/mallBanner/1468485462665.png","id":241,"intro":"","locationUrl":"https://mall.qian360.com/ruleExplain.html","subType":",","url":"/data/images/banner/mallBanner/1468485462665.png"}
+]'>
     <script src="/dist/build.js"></script>
   </body>
 </html>
