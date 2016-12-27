@@ -25,6 +25,7 @@ module.exports = {
             // the "scss" and "sass" values for the lang attribute to the right configs here.
             // other preprocessors should work out of the box, no loader config like this nessessary.
             'scss': 'vue-style-loader!css-loader!sass-loader',
+            //'less':'vue-style-loader!css-loader!less-loader',
             'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
           }
           // other vue-loader options go here
@@ -44,14 +45,20 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader:ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
+        //loader:ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
+
+
       //loader: ExtractTextPlugin.extract({loader:"style-loader"},{ loader:"css-loader"})
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
       }
     ]
   },
   plugins:[
     new ExtractTextPlugin("styles.css"),
-
     new webpack.ProvidePlugin({
       'window.jQuery': "jquery",
       jQuery: "jquery",

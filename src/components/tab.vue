@@ -1,13 +1,16 @@
 <template>
-    <div>
+    <div id='tab'>
         {{msg}}
-        <a>我是a标签</a>
+        <a class="aas">我是a标签</a>
     </div>
 </template>
-<style>
-    /*body{*/
-        /*background-color:#ff0000;*/
-    /*}*/
+<style lang="less">
+    #tab{
+        color: red;
+        .aas{
+            color:blue;
+        }
+    }
 </style>
 <script>
     export default{
@@ -18,3 +21,4 @@
         }
     }
 </script>
+

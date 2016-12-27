@@ -44,7 +44,6 @@
             }
         };
         this.init();
-        console.log(this)
     };
     var _prototype = slider.prototype;
     _prototype.init=function(){
@@ -116,7 +115,6 @@
     };
     _prototype.addload = function(sliderul,sliderol){
         var _this = this;
-        console.log(sliderul,sliderol,_this.opt.sliderBox,_this.opt.sliderBox)
         _this.opt.sliderBox.appendChild(sliderul);
         _this.opt.sliderBox.appendChild(sliderol);
         _this.sliderulli = sliderul.getElementsByTagName('li');
