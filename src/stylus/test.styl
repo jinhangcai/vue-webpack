@@ -17,6 +17,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 body {
   line-height: 1
+  font-size .24rem
 }
 
 ol,ul {
@@ -125,6 +126,16 @@ a {
     display: none;
   }
 }
+#pageLoading{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: #fff url('../images/loading-new.gif') no-repeat center center;
+  background-size: 1.36rem auto;
+}
 .router-link{
   width 6.4rem
   position fixed
@@ -141,16 +152,16 @@ a {
     position relative
 
     .bgImg1{
-      background url('../images/bomb.png') no-repeat
+      background url('../images/index/bomb.png') no-repeat
     }
     .bgImg2{
-      background url('../images/clock.png') no-repeat
+      background url('../images/index/clock.png') no-repeat
     }
     .bgImg3{
-      background url('../images/coin.png') no-repeat
+      background url('../images/index/coin.png') no-repeat
     }
     .bgImg4{
-      background url('../images/mario.png') no-repeat
+      background url('../images/index/mario.png') no-repeat
     }
     .bgImg{
       position absolute

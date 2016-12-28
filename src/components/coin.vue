@@ -16,8 +16,16 @@
     export default{
         data(){
             return{
-                msg:'hello vue'
+                msg:'hello vue',
+                pageLoading:true
             }
+        },
+        computed :{
+
+        },
+        mounted(){
+            var _this = this;
+            _this.pageLoading = false;
         }
     }
 </script>

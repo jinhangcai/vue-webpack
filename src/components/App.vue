@@ -28,6 +28,7 @@
         </div>
       </div>
     </main>
+    <section id="pageLoading"  v-show="pageLoading"></section>
   </section>
 </template>
 
@@ -38,6 +39,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
+      pageLoading:true,
       array:[]
     }
   },
@@ -52,6 +54,7 @@ export default {
         success:function(data){
           console.log(data)
           _this.array  = data;
+          _this.pageLoading = false;
         }
       })
     }
