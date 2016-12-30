@@ -3,7 +3,8 @@ import index from 'components/App.vue'
 import clock from 'components/clock.vue'
 import coin from 'components/coin.vue'
 import mario from 'components/mario.vue'
-import profile from 'components/profile.vue'
+import cast from 'components/cast.vue'
+import cast1 from 'components/cast1.vue'
 import VueRouter from 'router'
 import 'jquery'
 import  'stylus/test.css'
@@ -16,16 +17,19 @@ var routers = new VueRouter({
     {path:'/',redirect: '/index',component:index},
     {path:'/index',component:index},
     {path:'/clock',component:clock},
-    {path:'/coin',component:coin},
-    {path:'/mario',component:mario
-    //  ,children:[
-    //  {
-    //    path: ':id',
-    //    component: profile
-    //  }
-    //]
+    {path:'/coin',component:coin,children:[
+      {
+        path: 'cast',
+        component: cast
+      },
+      {
+        path: 'cast1',
+        component: cast1
+      }
+    ]
     },
-    {path:'/posts', component: profile}
+    {path:'/mario',component:mario}
+    //{path:'/posts', component: profile}
   ]
 });
 var app = new Vue({
