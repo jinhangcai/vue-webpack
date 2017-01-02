@@ -1,38 +1,49 @@
 <template>
      <div id='cast'>
         <ul class="status-list  comment-list">
-            <li>
-                <div>
-                    <div class="desc">
-                        <a href="/people/95805238/">
-                            <img src="https://img5.doubanio.com/icon/up95805238-16.jpg" alt="豆瓣">
-                        </a>
-                        <a href="/people/95805238/status/1932504669/">
-                        <div class="user-info">
-                            <strong>豆瓣<span>写了日记</span></strong>
-                            <div class="timestamp">2016-12-26 20:01:19</div>
+            <template v-for='arr in array.items'>
+                <li>
+                    <div>
+                        <div class="desc">
+                            <a href="/people/95805238/">
+                                <img src="https://img5.doubanio.com/icon/up95805238-16.jpg" alt="豆瓣">
+                            </a>
+                            <a href="/people/95805238/status/1932504669/">
+                            <div class="user-info">
+                                <strong>{{arr.status.author.name}}<span>{{arr.status.activity}}</span></strong>
+                                <div class="timestamp">{{arr.status.create_time}}</div>
+                            </div>
+                            </a>
                         </div>
+                        <a href="/people/95805238/status/1932504669/">
+                            <div class="content"></div>
                         </a>
                     </div>
-                    <a href="/people/95805238/status/1932504669/">
-                        <div class="content"></div>
-                    </a>
-                </div>
-                <div class="feed-card article-card has-cover has-subtitle">
-                    <a href="https://www.douban.com/note/598885383/">
-                        <div class="title">新版日记和评论编辑器上线</div>
-                        <div class="detail has-cover">
-                            <div class="text">日记和评论一直承载着豆友们主要的文字创作内容。这些内容汇聚在一起，不仅成为了豆友彼此寻找同好的土...</div>
-                            <div class="cover" style="background-image: url(&quot;https://img5.doubanio.com/view/status/median/public/4aAkNt.jpg&quot;);"></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="info"><div class="ic-btn ic-btn-like  left "><span class="text">8</span></div>
-                    <div class="ic-btn ic-btn-comment  left "><span class="text">0</span></div>
-                    <div class="ic-btn ic-btn-retweet  left "><span class="text">8</span></div>
-                    <div class="ic-btn ic-btn-more   right"></div>
-                </div>
-            </li>
+                    <div class="feed-card article-card has-cover has-subtitle">
+                        <a href="https://www.douban.com/note/598885383/">
+                            <div class="title">{{arr.status.card.title}}</div>
+                            <div class="detail has-cover">
+                                <div class="text">{{arr.status.card.subtitle}}</div>
+                                <!--<template v-if='JSON.stringify(arr.status.card.image) != "{}" '>-->
+                                    <!--{{arr.status.card.image}}-->
+                                <!--</template>-->
+                                <!--<template v-if='arr.status.card.image.large '>-->
+                                    <!--&lt;!&ndash;{{arr.status.card.image}}&ndash;&gt;-->
+                                <!--</template>-->
+                                <!--<template v-else>-->
+                                    <!--&lt;!&ndash;111&ndash;&gt;-->
+                                <!--</template>-->
+                                <!--<div class="cover"  :style="{backgroundImage: 'url(' + arr.status.card.image.large.url + ')'}"></div>-->
+                            </div>
+                        </a>
+                    </div>
+                    <div class="info"><div class="ic-btn ic-btn-like  left "><span class="text">{{arr.status.like_count}}</span></div>
+                        <div class="ic-btn ic-btn-comment  left "><span class="text">{{arr.status.comments_count}}</span></div>
+                        <div class="ic-btn ic-btn-retweet  left "><span class="text">{{arr.status.resharers_count}}</span></div>
+                        <div class="ic-btn ic-btn-more   right"></div>
+                    </div>
+                </li>
+            </template>
         </ul>
      </div>
 </template>
@@ -198,4 +209,30 @@
     }
 </style>
 <script>
+export default {
+  name: 'cast',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      array:[]
+    }
+  },
+  computed :{
+  },
+  mounted(){
+  //mounted == ready
+    var _this = this;
+    $.ajax({
+        url:'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?max_id=&ck=&for_mobile=1',
+        dataType:'jsonp',
+        processData: false,
+        type:'get',
+        success:function(data){
+            console.log(data)
+            _this.array = data;
+            console.log(_this.array)
+        }
+    })
+  }
+}
 </script>

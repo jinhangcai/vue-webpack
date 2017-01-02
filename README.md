@@ -1,6 +1,6 @@
 # vue+vue-router+webpack
 
-> vue.js
+> '使用vue开发，webpack打包，vue-router路由开发的仿造豆瓣写的一个单页面'
 
 ## Build Setup
 
