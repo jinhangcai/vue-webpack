@@ -74,8 +74,10 @@ module.exports = {
       'components':path.join(__dirname , './src/components'),
       'stylus':path.join(__dirname,'./src/stylus'),
       'router':"vue-router/dist/vue-router.js",
+      'VueCoreImageUpload':'vue2.x-core-image-upload/src/vue.core.image.upload.vue',
       'script':path.join(__dirname,'./src/script'),
-      'jquery':path.join(__dirname,'./src/script/jquery')
+      'jquery':path.join(__dirname,'./src/script/jquery'),
+      'module':path.join(__dirname,'./src/module')
     }
   },
   //本地服务器配置

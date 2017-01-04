@@ -29,7 +29,6 @@
             padding: 10px 0;
             cursor: pointer;
             overflow: hidden;
-            border-bottom:1px solid #E8E8E8;
             &:before{
                 left: 0;
                 bottom: 0;

@@ -284,3 +284,44 @@ a {
   flex-wrap: nowrap;
   justify-content: center;
 }
+#uiPopFrame {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 99999;
+}
+#uiPopFrame .ui-pop-main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 0.1rem;
+  overflow: hidden;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 5.3rem;
+  background-color: #fff;
+}
+#uiPopFrame .ui-pop-main .ui-pop-cont {
+  text-align: center !important;
+  color: #666;
+  font-size: 0.28rem !important;
+  padding: 0.7rem 0.35rem;
+  line-height: 1.5;
+}
+#uiPopFrame .ui-pop-main .ui-pop-operation {
+  border-top: 1px solid #ccc;
+  display: table;
+  width: 100%;
+  height: 100%;
+  table-layout: fixed;
+}
+#uiPopFrame .ui-pop-main .ui-pop-operation a {
+  display: table-cell;
+  text-align: center;
+  line-height: 0.9rem;
+  font-size: 0.32rem;
+  color: #f07e68;
+}

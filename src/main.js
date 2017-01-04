@@ -17,7 +17,7 @@ var routers = new VueRouter({
     {path:'/',redirect: '/index',component:index},
     {path:'/index',component:index},
     {path:'/clock',component:clock},
-    {path:'/coin',component:coin,children:[
+    {path:'/coin',component:coin,redirect: '/coin/cast',children:[
       {
         path: 'cast',
         component: cast
