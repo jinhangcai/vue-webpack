@@ -325,3 +325,20 @@ a {
   font-size: 0.32rem;
   color: #f07e68;
 }
+.fade-enter-active,
+fade-transition,
+.fade-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+.fade-enter-active {
+  transform: translateX(0);
+}
+.fade-leave-active {
+  transform: translateX(0);
+}
+.fade-enter {
+  transform: translateX(-100%);
+}
+.fade-leave-active {
+  transform: translateX(100%);
+}

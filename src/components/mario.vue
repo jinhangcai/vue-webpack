@@ -9,17 +9,18 @@
 
 </style>
 <script>
-    export default{
-        data(){
-            return{
-                msg:'hello vue'
-            }
-        },
-        computed :{
-
-        },
-        mounted(){
-            var _this = this
+export default{
+    data(){
+        return{
+            msg:'hello vue'
         }
+    },
+    computed :{
+
+
+    },
+    mounted(){
+        var _this = this
     }
+}
 </script>

@@ -3,8 +3,8 @@
         <div class="content-bar">
             <div class="content" placeholder="分享生活点滴..." contenteditable="true" @keyup='submit' v-html='text'>
             </div>
-            <div class="feed-images single" v-if='ImgShow'>
-                <div class="item portrait  ">
+            <div class="feed-images single" v-if='AddImg'>
+                <div class="item portrait">
                     <img :src='AddImg'  class='landscape'>
                     <i class="del" @click='del'></i>
                 </div>
@@ -12,7 +12,7 @@
         </div>
         <div class="info">
             <div class="btn btn-camera"  @click='uploadImg'>
-                <input class="fileImage" type="file" accept="image/*" name="uploadImg" multiple="camera" @change="onFileChange">
+                <input class="fileImage" type="file" accept="image/*" name="uploadImg" multiple="camera" @change="onFileChange" v-if='showinput'>
             </div>
             <div class="btn btn-at"></div>
             <div class="btn btn-hash"></div>
@@ -178,7 +178,8 @@ export default {
       copyNumber:140,
       copyNumber1:0,
       AddImg:'',
-      ImgShow:false
+      ImgShow:false,
+      showinput:true
     }
   },
 //  components: {
@@ -199,44 +200,44 @@ export default {
       uploadImg(){
 
       },
-      onFileChange(e){
-          console.log(1)
+      onFileChange(e) {
+          var files = e.target.files || e.dataTransfer.files;
+          if (!files.length)
+              return;
+          this.showinput = false;
+          this.createImage(files[0]);
+      },
+      createImage(file) {
           var _this = this;
-          var files = e.target.files;
-          var file = files[0];
-            console.log(file)
           if (file.type.indexOf("image") == 0) {
-              //|| file.size <= 102400
               if (file.size >= 5242880 || file.size <= 102400) {
-                  // alert('您这张"'+ file.name +'"图片大小过大，应小于500k');
                   popalert.run({
                       contStr: '请上传100KB~5MB的图片'
                   });
+                  this.showinput = true;
                   return;
               }
           } else {
               popalert.run({
                   contStr: '请上传图片'
               });
+              this.showinput = true;
               return;
           }
-          var funAppendImage = function() {
-              console.log(file)
-              if (file) {
-                  var reader = new FileReader();
-                  reader.onload = function (e) {
-                      console.log(e)
-                      _this.AddImg = e.target.result;
-                      _this.ImgShow = true;
-                  };
-                  reader.readAsDataURL(file);
-              }
+          var image = new Image();
+          var reader = new FileReader();
+          reader.onload = (e) => {
+              _this.AddImg = e.target.result;
+              _this.createShow(e);
           };
-          funAppendImage()
+          reader.readAsDataURL(file);
       },
-      del:function(){
+      createShow(e){
+          this.showinput = true;
+      },
+      del:function(e){
           var _this = this;
-          _this.ImgShow = false;
+          _this.AddImg = '';
       }
   },
   mounted(){

@@ -266,3 +266,22 @@ a {
     }
   }
 }
+//v-enter-active: 定义进入过渡的结束状态。在元素被插入时生效，在 transition/animation 完成之后移除。
+
+.fade-enter-active,fade-transition,.fade-leave-active{
+  transition: transform 0.3s ease-in-out;
+}
+//v-leave-active: 定义离开过渡的结束状态。在离开过渡被触发时生效，在 transition/animation 完成之后移除。
+.fade-enter-active{
+  transform: translateX(0);
+}
+.fade-leave-active {
+  transform: translateX(0);
+}
+//定义进入过渡的开始状态。在元素被插入时生效，在下一个帧移除。
+.fade-enter{
+  transform: translateX(-100%);
+}
+.fade-leave-active {
+  transform: translateX(100%);
+}

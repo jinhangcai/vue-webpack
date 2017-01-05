@@ -1,7 +1,7 @@
-<template>
+<template >
     <section id="clock" class="page"  >
         <main class="viewport">
-            <section id="movie_showing" style="padding-bottom:2rem;">
+            <section id="movie_showing" style="padding-bottom:2rem;" >
                 <header>
                     <h2>影院热映</h2>
                     <a href="javascript:;">更多</a>

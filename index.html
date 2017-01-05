@@ -29,7 +29,11 @@
         <router-link to="/coin" class="list-group-item"><div class="bgImg bgImg3"></div><div class="title">广播</div></router-link>
         <router-link to="/mario" class="list-group-item"><div class="bgImg bgImg4"></div><div class="title">我的</div></router-link>
       </div>
-      <router-view></router-view>
+      <!--mode="out-in"-->
+      <!--name="fade"-->
+        <transition name="fade" >
+          <router-view class="view"></router-view>
+        </transition>
     </div>
     <input type="hidden" id="slideImgList"
            value='[

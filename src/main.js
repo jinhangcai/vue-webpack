@@ -17,7 +17,8 @@ var routers = new VueRouter({
     {path:'/',redirect: '/index',component:index},
     {path:'/index',component:index},
     {path:'/clock',component:clock},
-    {path:'/coin',component:coin,redirect: '/coin/cast',children:[
+    {path:'/coin',component:coin,children:[
+      { path: '', component: cast },
       {
         path: 'cast',
         component: cast
@@ -33,6 +34,11 @@ var routers = new VueRouter({
   ]
 });
 var app = new Vue({
+  data () {
+    return {
+      transitionName: 'slide-left'
+    }
+  },
   router:routers,
   //render:h=>h(App)
 

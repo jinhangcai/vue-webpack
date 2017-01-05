@@ -1,5 +1,5 @@
 <template>
-  <section id="App" class="page"  >
+  <section id="App" class="page"   >
     <main class="viewport">
       <div>
         <div class="slider">
@@ -39,7 +39,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      pageLoading:true,
+      pageLoading:false,
       array:[]
     }
   },
@@ -52,7 +52,6 @@ export default {
         processData: false,
         type:'get',
         success:function(data){
-          console.log(data)
           _this.array  = data;
           _this.pageLoading = false;
         }
