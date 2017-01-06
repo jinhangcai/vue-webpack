@@ -242,7 +242,6 @@ export default {
   },
   mounted(){
     var _this = this;
-    console.log(_this.text)
   }
 }
 </script>

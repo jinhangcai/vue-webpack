@@ -2,111 +2,117 @@
     <section id="clock" class="page"  >
         <main class="viewport">
             <section id="movie_showing" style="padding-bottom:2rem;" >
-                <header>
-                    <h2>影院热映</h2>
-                    <a href="javascript:;">更多</a>
-                </header>
-                <div class="section-content">
-                    <ul class="row items">
-                        <template v-for ='arr in hit.subject_collection_items'>
-                            <li class="item item__movie">
-                                <a href="javascript:;">
-                                    <div class="item-poster" :style="{backgroundImage: 'url(' + arr.cover.url + ')'}"></div>
-                                    <div class="item-rating">
-                                        <div class="item-title">{{arr.title}}</div>
-                                        <div class="rank">
-                                            <template v-if='arr.rating && arr.rating !=0'>
-                                                <span class="rating-stars" data-rating="2.7">
-                                                    <template v-for='i in parseInt(arr.rating.value/2)'>
-                                                        <span class="rating-star rating-star-small-full"></span>
-                                                    </template>
-                                                   <template v-for='i in 5-parseInt(arr.rating.value/2)'>
-                                                        <span class="rating-star rating-star-small-gray rating-star-left"></span>
-                                                   </template>
-                                                    <!--<span class="rating-star rating-star-small-full"></span>-->
-                                                    <!--<span class="rating-star rating-star-small-full"></span>-->
-                                                    <!--<span class="rating-star rating-star-small-gray"></span>-->
-                                                    <span class="rating-star rating-star-small-score">{{parseInt(arr.rating.value)}}</span>
-                                                </span>
-                                            </template>
-                                            <span v-else>暂无评分</span>
+                <template v-if='!pageLoading'>
+                    <!--<section id="pageLoading" ></section>-->
+                    <div class="pageloading"></div>
+                </template>
+                <template v-else>
+                    <header>
+                        <h2>影院热映</h2>
+                        <a href="javascript:;">更多</a>
+                    </header>
+                    <div class="section-content">
+                        <ul class="row items">
+                            <template v-for ='arr in hit.subject_collection_items'>
+                                <li class="item item__movie">
+                                    <a href="javascript:;">
+                                        <div class="item-poster" :style="{backgroundImage: 'url(' + arr.cover.url + ')'}"></div>
+                                        <div class="item-rating">
+                                            <div class="item-title">{{arr.title}}</div>
+                                            <div class="rank">
+                                                <template v-if='arr.rating && arr.rating !=0'>
+                                                    <span class="rating-stars" data-rating="2.7">
+                                                        <template v-for='i in parseInt(arr.rating.value/2)'>
+                                                            <span class="rating-star rating-star-small-full"></span>
+                                                        </template>
+                                                       <template v-for='i in 5-parseInt(arr.rating.value/2)'>
+                                                            <span class="rating-star rating-star-small-gray rating-star-left"></span>
+                                                       </template>
+                                                        <!--<span class="rating-star rating-star-small-full"></span>-->
+                                                        <!--<span class="rating-star rating-star-small-full"></span>-->
+                                                        <!--<span class="rating-star rating-star-small-gray"></span>-->
+                                                        <span class="rating-star rating-star-small-score">{{parseInt(arr.rating.value)}}</span>
+                                                    </span>
+                                                </template>
+                                                <span v-else>暂无评分</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </template>
-                    </ul>
-                </div>
-                <header style="margin-top:.6rem;">
-                    <h2>免费在线电影</h2>
-                    <a href="javascript:;">更多</a>
-                </header>
-                <div class="section-content">
-                    <ul class="row items">
-                        <template v-for ='arr in free.subject_collection_items'>
-                            <li class="item item__movie">
-                                <a href="javascript:;">
-                                    <div class="item-poster" :style="{backgroundImage: 'url(' + arr.cover.url + ')'}"></div>
-                                    <div class="item-rating">
-                                        <div class="item-title">{{arr.title}}</div>
-                                        <div class="rank">
-                                            <template v-if='arr.rating && arr.rating !=0'>
-                                                <span class="rating-stars" data-rating="2.7">
-                                                    <template v-for='i in parseInt(arr.rating.value/2)'>
-                                                        <span class="rating-star rating-star-small-full"></span>
-                                                    </template>
-                                                   <template v-for='i in 5-parseInt(arr.rating.value/2)'>
-                                                        <span class="rating-star rating-star-small-gray rating-star-left"></span>
-                                                   </template>
-                                                    <!--<span class="rating-star rating-star-small-full"></span>-->
-                                                    <!--<span class="rating-star rating-star-small-full"></span>-->
-                                                    <!--<span class="rating-star rating-star-small-gray"></span>-->
-                                                    <span class="rating-star rating-star-small-score">{{parseInt(arr.rating.value)}}</span>
-                                                </span>
-                                            </template>
-                                            <span v-else>暂无评分</span>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    <header style="margin-top:.6rem;">
+                        <h2>免费在线电影</h2>
+                        <a href="javascript:;">更多</a>
+                    </header>
+                    <div class="section-content">
+                        <ul class="row items">
+                            <template v-for ='arr in free.subject_collection_items'>
+                                <li class="item item__movie">
+                                    <a href="javascript:;">
+                                        <div class="item-poster" :style="{backgroundImage: 'url(' + arr.cover.url + ')'}"></div>
+                                        <div class="item-rating">
+                                            <div class="item-title">{{arr.title}}</div>
+                                            <div class="rank">
+                                                <template v-if='arr.rating && arr.rating !=0'>
+                                                    <span class="rating-stars" data-rating="2.7">
+                                                        <template v-for='i in parseInt(arr.rating.value/2)'>
+                                                            <span class="rating-star rating-star-small-full"></span>
+                                                        </template>
+                                                       <template v-for='i in 5-parseInt(arr.rating.value/2)'>
+                                                            <span class="rating-star rating-star-small-gray rating-star-left"></span>
+                                                       </template>
+                                                        <!--<span class="rating-star rating-star-small-full"></span>-->
+                                                        <!--<span class="rating-star rating-star-small-full"></span>-->
+                                                        <!--<span class="rating-star rating-star-small-gray"></span>-->
+                                                        <span class="rating-star rating-star-small-score">{{parseInt(arr.rating.value)}}</span>
+                                                    </span>
+                                                </template>
+                                                <span v-else>暂无评分</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </template>
-                    </ul>
-                </div>
-                <header style="margin-top:.6rem;">
-                    <h2>新片速递</h2>
-                    <a href="javascript:;">更多</a>
-                </header>
-                <div class="section-content">
-                    <ul class="row items">
-                        <template v-for ='arr in film.subject_collection_items'>
-                            <li class="item item__movie">
-                                <a href="javascript:;">
-                                    <div class="item-poster" :style="{backgroundImage: 'url(' + arr.cover.url + ')'}"></div>
-                                    <div class="item-rating">
-                                        <div class="item-title">{{arr.title}}</div>
-                                        <div class="rank">
-                                            <template v-if='arr.rating && arr.rating !=0'>
-                                                <span class="rating-stars" data-rating="2.7">
-                                                    <template v-for='i in parseInt(arr.rating.value/2)'>
-                                                        <span class="rating-star rating-star-small-full"></span>
-                                                    </template>
-                                                   <template v-for='i in 5-parseInt(arr.rating.value/2)'>
-                                                        <span class="rating-star rating-star-small-gray rating-star-left"></span>
-                                                   </template>
-                                                    <!--<span class="rating-star rating-star-small-full"></span>-->
-                                                    <!--<span class="rating-star rating-star-small-full"></span>-->
-                                                    <!--<span class="rating-star rating-star-small-gray"></span>-->
-                                                    <span class="rating-star rating-star-small-score">{{parseInt(arr.rating.value)}}</span>
-                                                </span>
-                                            </template>
-                                            <span v-else>暂无评分</span>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    <header style="margin-top:.6rem;">
+                        <h2>新片速递</h2>
+                        <a href="javascript:;">更多</a>
+                    </header>
+                    <div class="section-content">
+                        <ul class="row items">
+                            <template v-for ='arr in film.subject_collection_items'>
+                                <li class="item item__movie">
+                                    <a href="javascript:;">
+                                        <div class="item-poster" :style="{backgroundImage: 'url(' + arr.cover.url + ')'}"></div>
+                                        <div class="item-rating">
+                                            <div class="item-title">{{arr.title}}</div>
+                                            <div class="rank">
+                                                <template v-if='arr.rating && arr.rating !=0'>
+                                                    <span class="rating-stars" data-rating="2.7">
+                                                        <template v-for='i in parseInt(arr.rating.value/2)'>
+                                                            <span class="rating-star rating-star-small-full"></span>
+                                                        </template>
+                                                       <template v-for='i in 5-parseInt(arr.rating.value/2)'>
+                                                            <span class="rating-star rating-star-small-gray rating-star-left"></span>
+                                                       </template>
+                                                        <!--<span class="rating-star rating-star-small-full"></span>-->
+                                                        <!--<span class="rating-star rating-star-small-full"></span>-->
+                                                        <!--<span class="rating-star rating-star-small-gray"></span>-->
+                                                        <span class="rating-star rating-star-small-score">{{parseInt(arr.rating.value)}}</span>
+                                                    </span>
+                                                </template>
+                                                <span v-else>暂无评分</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </template>
-                    </ul>
-                </div>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
                 <header style="margin-top:.6rem;">
                     <h2>发现好电影</h2>
                 </header>
@@ -158,6 +164,13 @@
 </template>
 <style lang='less'>
     #clock{
+        .pageloading{
+            width:0.85rem;
+            height:0.81rem;
+            background: url('../images/loading.gif') no-repeat;
+            background-size:100%;
+            margin:2rem auto 0;
+        }
         #movie_showing{
             header{
                 padding: 0 0.3rem;
@@ -390,43 +403,57 @@
                 msg:'hello vue',
                 hit:[],
                 free:[],
-                film:[]
+                film:[],
+                pageLoading:false
             }
         },
-        computed :{
-            loader(){
+        created () {
+            // 组件创建完后获取数据，
+            // 此时 data 已经被 observed 了
+            var _this = this;
+            _this.fetchData()
+        },
+        watch: {
+            // 如果路由有变化，会再次执行该方法
+            '$route': 'fetchData'
+        },
+        methods :{
+            fetchData(){
                 var _this = this;
                 $.ajax({
                     url:'/src/json/clock1.json',
                     type:'get',
+                    async:false,
                     dataType: "json",   //返回的数据类型
                     success:function(data){
-                       _this.hit = data
+                       _this.hit = data;
+                        $.ajax({
+                            url:'/src/json/clock2.json',
+                            type:'get',
+                            async:false,
+                            dataType: "json",   //返回的数据类型
+                            success:function(data){
+                                _this.free = data;
+                                $.ajax({
+                                    url:'/src/json/clock3.json',
+                                    type:'get',
+                                    dataType: "json",   //返回的数据类型
+                                    success:function(data){
+                                        _this.film = data;
+                                        _this.pageLoading = true;
+                                    }
+                                })
+                            }
+                        });
                     }
                 });
-                $.ajax({
-                    url:'/src/json/clock2.json',
-                    type:'get',
-                    dataType: "json",   //返回的数据类型
-                    success:function(data){
-                        console.log(data)
-                        _this.free = data
-                    }
-                });
-                $.ajax({
-                    url:'/src/json/clock3.json',
-                    type:'get',
-                    dataType: "json",   //返回的数据类型
-                    success:function(data){
-                        _this.film = data
-                    }
-                })
+
+
 
         }
         },
         mounted(){
             var _this = this;
-            _this.loader;
         }
     }
 </script>

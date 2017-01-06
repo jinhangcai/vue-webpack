@@ -2,10 +2,22 @@
   <section id="App" class="page"   >
     <main class="viewport">
       <div>
-        <div class="slider">
-        </div>
+        <!--原型链写的滑动-->
+        <!--<div class="slider"></div>-->
+        <!--vue组件写的滑动-->
+        <slider :pages="someList" :sliderinit="sliderinit" @slide='slide'>
+          <!-- slot  -->
+        </slider>
+        <!--<button @click="slidePre">上一页</button>-->
+        <!--<button @click="slideNext">下一页</button>-->
+        <!--<button @click="appendslider">添加一页</button>-->
+        <!--<button @click="turnTo(2)">跳转到第三页</button>-->
         <div class="feed-section" style="width: 100%;height: 8.4rem;overflow: scroll;">
-          <template v-for ='arr in array.recommend_feeds'>
+          <template v-if='!pageLoading'>
+            <!--<section id="pageLoading" ></section>-->
+            <div class="pageloading"></div>
+          </template>
+          <template v-else v-for ='arr in array.recommend_feeds'>
               <a href="javascript:;" class="feed-item">
                 <div class="author">
                   <div class="avatar" :style="{backgroundImage: 'url(' + arr.author.avatar + ')'}">
@@ -28,23 +40,78 @@
         </div>
       </div>
     </main>
-    <section id="pageLoading"  v-show="pageLoading"></section>
+    <!--<section id="pageLoading"  v-show="pageLoading"></section>-->
   </section>
 </template>
 
 <script>
-import slider from 'script/slider'
+//原型链写的滑动js
+//import slider from 'script/slider'
+
+//vue组件写的滑动
+import slider from './slider.vue'
 export default {
   name: 'App',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       pageLoading:false,
-      array:[]
+      array:[],
+      //起步加载的背景图片和文案  ps:要先加载一条出来，不然会出错
+      someList:[
+        {
+          title: 'slide1',
+          style:{
+            'background':'#1bbc9b'
+          }
+        },
+        {
+          title: 'slid2',
+          style:{
+            'background':'#ccc'
+          }
+        },
+        {
+          title: 'slide1',
+          style:{
+            'background':'#1bbc9b'
+          }
+        },
+        {
+          title: 'slid2',
+          style:{
+            'background':'#ccc'
+          }
+        }
+      ],
+      //滑动配置
+      sliderinit: {
+        currentPage: 1,   //当前页
+        start: {},
+        end: {},
+        tracking: false,
+        thresholdTime: 500,//滑动判定距离
+        thresholdDistance: 100,//滑动判定时间
+        loop:true,//无限循环
+        // autoplay:1000,//自动播放:时间[ms]
+      }
     }
   },
-  computed :{
-    loader(){
+  components:{
+    slider
+  },
+  created () {
+    // 组件创建完后获取数据，
+    // 此时 data 已经被 observed 了
+    var _this = this;
+    _this.fetchData()
+  },
+  watch: {
+    // 如果路由有变化，会再次执行该方法
+    '$route': 'fetchData'
+  },
+  methods: {
+    fetchData () {
       var _this = this;
       $.ajax({
         url:'https://m.douban.com/rexxar/api/v2/recommend_feed?alt=json&next_date=&loc_id=108288&gender=&birthday=&udid=9fcefbf2acf1dfc991054ac40ca5114be7cd092f&for_mobile=true',
@@ -53,27 +120,70 @@ export default {
         type:'get',
         success:function(data){
           _this.array  = data;
-          _this.pageLoading = false;
+          _this.pageLoading = true;
         }
-      })
+      });
+    },
+//点击按钮触发滑动事件  用vue组件写的
+//    turnTo (num) {
+//      // 传递事件 vue 2.0 传递事件修改了，好的写法应该直接写在空vue类中
+//      this.$children[0].$emit('slideTo', num);
+//      console.log(this);
+//    },
+//    slideNext () {
+//      this.$children[0].$emit('slideNext');
+//    },
+//    slidePre () {
+//      this.$children[0].$emit('slidePre');
+//    },
+//    appendslider(){
+//      this.someList.push({
+//        title: 'slidernew',
+//        style:{
+//          background:'#333',
+//          color:'#fff'
+//        }
+//      });
+//    },
+    // 监听事件也发生了变化,需要指向一个子组件实例
+    slide(pagenum){
+      console.log(pagenum);
     }
   },
   mounted(){
     var _this = this;
-   _this.loader;
     var slideImgList = eval($('#slideImgList').val());
-    new slider({
-      sliderBox :$('.slider')[0], //容器
-      sliderDate:slideImgList,    //内容
-      sliderTime:5000,          //自动切换时间
-      lazyload:true               //是否懒加载
-    });
+//    _this.someList = [];
+//    slideImgList.forEach(function(e){
+//      var obj = {};
+//      obj.title ='';
+//      obj.style={};
+//      obj.style.background='url('+e.fullShowUrl+')';
+//      _this.someList.push(obj)
+//    });
+
+
+//用原型链写的滑动事件
+//    new slider({
+//      sliderBox :$('.slider')[0], //容器
+//      sliderDate:slideImgList,    //内容
+//      sliderTime:5000,          //自动切换时间
+//      lazyload:true               //是否懒加载
+//    });
+
   }
 }
 </script>
 
 <style lang="less">
   #App{
+    .pageloading{
+      width:0.85rem;
+      height:0.81rem;
+      background: url('../images/loading.gif') no-repeat;
+      background-size:100%;
+      margin:2rem auto 0;
+    }
     .feed-section{
       .feed-item{
         display: block;

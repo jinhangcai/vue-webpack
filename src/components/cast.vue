@@ -1,11 +1,15 @@
 <template>
      <div id='cast'>
         <ul class="status-list  comment-list">
-            <template v-for='arr in array.items'>
+            <template v-if='!pageLoading'>
+                <!--<section id="pageLoading" ></section>-->
+                <div class="pageloading"></div>
+            </template>
+            <template v-else v-for='arr in array.items'>
                 <li>
                     <div>
                         <div class="desc">
-                            <a href="/people/95805238/">
+                            <a href="javascript:;">
                                 <img src="https://img5.doubanio.com/icon/up95805238-16.jpg" alt="豆瓣">
                             </a>
                             <a href="/people/95805238/status/1932504669/">
@@ -15,26 +19,23 @@
                             </div>
                             </a>
                         </div>
-                        <a href="/people/95805238/status/1932504669/">
+                        <a href="javascript:;">
                             <div class="content"></div>
                         </a>
                     </div>
                     <div class="feed-card article-card has-cover has-subtitle">
-                        <a href="https://www.douban.com/note/598885383/">
+                        <a href="javascript:;">
                             <div class="title">{{arr.status.card.title}}</div>
-                            <div class="detail has-cover">
+                            <div class="detail has-cover" style="padding-right: 90px;"  v-if='arr.status.card && arr.status.card.image && arr.status.card.image.large'>
                                 <div class="text">{{arr.status.card.subtitle}}</div>
-                                <!--<template v-if='JSON.stringify(arr.status.card.image) != "{}" '>-->
-                                    <!--{{arr.status.card.image}}-->
-                                <!--</template>-->
-                                <!--<template v-if='arr.status.card.image.large '>-->
-                                    <!--&lt;!&ndash;{{arr.status.card.image}}&ndash;&gt;-->
-                                <!--</template>-->
-                                <!--<template v-else>-->
-                                    <!--&lt;!&ndash;111&ndash;&gt;-->
-                                <!--</template>-->
-                                <!--<div class="cover"  :style="{backgroundImage: 'url(' + arr.status.card.image.large.url + ')'}"></div>-->
+                                <div class="cover" :style="{backgroundImage: 'url(' + arr.status.card.image.large.url + ')'}"></div>
                             </div>
+                            <template v-else>
+                                <div class="detail has-cover" style="padding-right: 0">
+                                    <div class="text">{{arr.status.card.subtitle}}</div>
+                                    <!--<div class="cover" :style="{backgroundImage: 'url(' + arr.status.card.image.large.url + ')'}"></div>-->
+                                </div>
+                            </template>
                         </a>
                     </div>
                     <div class="info"><div class="ic-btn ic-btn-like  left "><span class="text">{{arr.status.like_count}}</span></div>
@@ -51,6 +52,13 @@
     #cast{
         width:5.8rem;
         margin:0 auto;
+        .pageloading{
+            width:0.85rem;
+            height:0.81rem;
+            background: url('../images/loading.gif') no-repeat;
+            background-size:100%;
+            margin:2rem auto 0;
+        }
         .status-list{
             overflow:hidden;
             li{
@@ -214,25 +222,42 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      array:[]
+      array:[],
+      pageLoading:false
     }
   },
-  computed :{
+  created () {
+        // 组件创建完后获取数据，
+        // 此时 data 已经被 observed 了
+        var _this = this;
+        _this.fetchData()
   },
+  watch: {
+        // 如果路由有变化，会再次执行该方法
+        '$route': 'fetchData'
+  },
+  methods :{
+      fetchData(){
+          var _this = this;
+          $.ajax({
+              url:'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?max_id=&ck=&for_mobile=1',
+              dataType:'jsonp',
+              processData: false,
+              type:'get',
+
+              success:function(data){
+                  console.log(data.items[1].status.card)
+                  _this.array = data;
+                  _this.pageLoading = true;
+              }
+          })
+      }
+  },
+
   mounted(){
   //mounted == ready
     var _this = this;
-    $.ajax({
-        url:'https://m.douban.com/rexxar/api/v2/status/anonymous_timeline?max_id=&ck=&for_mobile=1',
-        dataType:'jsonp',
-        processData: false,
-        type:'get',
-        success:function(data){
-            console.log(data)
-            _this.array = data;
-            console.log(_this.array)
-        }
-    })
+
   }
 }
 </script>

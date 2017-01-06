@@ -11,7 +11,8 @@ module.exports = {
     //在index中匹配
     publicPath: '/dist/',
     //输出的js名称
-    filename: 'build.js'
+    filename: 'build.js',
+    chunkFilename:'[id].build.js?[chunkhash]'
   },
   //加载器配置
   module: {
@@ -74,6 +75,7 @@ module.exports = {
       'components':path.join(__dirname , './src/components'),
       'stylus':path.join(__dirname,'./src/stylus'),
       'router':"vue-router/dist/vue-router.js",
+      'vue-slider':'vue-slider/dist/vue-slider.js',
       'VueCoreImageUpload':'vue2.x-core-image-upload/src/vue.core.image.upload.vue',
       'script':path.join(__dirname,'./src/script'),
       'jquery':path.join(__dirname,'./src/script/jquery'),
