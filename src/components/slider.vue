@@ -7,8 +7,8 @@
 }
  .slider-container {
     height: 400px;
-    margin: 20px auto;
-    width: 70%;
+    margin: 0 auto;
+    width: 100%;
     }
 .slider-center-center{
 		margin: auto;

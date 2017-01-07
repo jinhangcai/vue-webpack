@@ -1,6 +1,6 @@
 <template>
-  <section id="App" class="page"   >
-    <main class="viewport">
+  <section id="App"   >
+    <main >
       <div>
         <!--原型链写的滑动-->
         <!--<div class="slider"></div>-->
@@ -66,21 +66,15 @@ export default {
           }
         },
         {
-          title: 'slid2',
-          style:{
-            'background':'#ccc'
-          }
-        },
-        {
-          title: 'slide1',
+          title: 'slide2',
           style:{
             'background':'#1bbc9b'
           }
         },
         {
-          title: 'slid2',
+          title: 'slide3',
           style:{
-            'background':'#ccc'
+            'background':'#1bbc9b'
           }
         }
       ],
@@ -89,7 +83,7 @@ export default {
         currentPage: 1,   //当前页
         start: {},
         end: {},
-        tracking: false,
+        tracking: false,  //跟踪
         thresholdTime: 500,//滑动判定距离
         thresholdDistance: 100,//滑动判定时间
         loop:true,//无限循环
@@ -177,6 +171,9 @@ export default {
 
 <style lang="less">
   #App{
+    width:100%;
+    height:100%;
+    overflow:hidden;
     .pageloading{
       width:0.85rem;
       height:0.81rem;

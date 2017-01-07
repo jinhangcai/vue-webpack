@@ -200,16 +200,19 @@ a {
   background-size: 1.36rem auto;
 }
 .router-link {
-  width: 6.4rem;
+  width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
   border-top: 1px solid #cfcbca;
   z-index: 9999;
 }
+.router-link li {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
 .router-link a {
-  width: 1.6rem;
-  float: left;
   height: 0.95rem;
   background: #f4f0ef;
   position: relative;
