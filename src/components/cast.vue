@@ -246,7 +246,6 @@ export default {
               type:'get',
 
               success:function(data){
-                  console.log(data.items[1].status.card)
                   _this.array = data;
                   _this.pageLoading = true;
               }

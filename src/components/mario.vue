@@ -29,6 +29,7 @@
         <div class="navBottom">
             <div class="nav-item">
                 <a class="toUser" href="javascript:;">包菜头</a>
+                <router-link to="/login" class="list-group-item">登录</router-link>
                 <a class="toExit" href="javascript:;">退出豆瓣</a>
             </div>
             <div class="nav-item">
@@ -39,6 +40,9 @@
     </div>
 </template>
 <style lang='less'>
+    .router-link{
+        display:block;
+    }
     #mario{
         ul{
             padding-top: 25px;

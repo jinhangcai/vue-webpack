@@ -32,9 +32,15 @@ var routers = new VueRouter({
         }
      ]
     },
-    {path:'/mario',component:function(resolve){require(['components/mario.vue'],resolve)},name:'我的'}
+    {path:'/mario',component:function(resolve){require(['components/mario.vue'],resolve)},name:'我的'},
+    {path:'/login',component:function(resolve){require(['components/login.vue'],resolve)},name:'登录'}
+
   ]
 });
+//event bus
+window.eventBus = new Vue();
+
+
 var app = new Vue({
   data () {
     return {
@@ -46,10 +52,16 @@ var app = new Vue({
 
 }).$mount('#app');
 routers.afterEach((to, from, next) => {
+  if(to.fullPath == '/login'){
+    document.title = to.name;
+    $('.router-link').hide();
+    return;
+  }
   if(to.fullPath == '/coin'){
     document.title = to.matched[0].name;
     return;
   }
+  $('.router-link').show();
   document.title = to.name;
 });
 //new Vue({

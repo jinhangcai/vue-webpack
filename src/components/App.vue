@@ -18,6 +18,7 @@
             <div class="pageloading"></div>
           </template>
           <template v-else v-for ='arr in array.recommend_feeds'>
+            <div class='abc' v-if='show'>lsjdfoasjfosadfoasfoasfsadfosadofnasdofn</div>
               <a href="javascript:;" class="feed-item">
                 <div class="author">
                   <div class="avatar" :style="{backgroundImage: 'url(' + arr.author.avatar + ')'}">
@@ -50,6 +51,7 @@
 
 //vue组件写的滑动
 import slider from './slider.vue'
+console.log(eventBus)
 export default {
   name: 'App',
   data () {
@@ -57,6 +59,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       pageLoading:false,
       array:[],
+      show:false,
       //起步加载的背景图片和文案  ps:要先加载一条出来，不然会出错
       someList:[
         {
@@ -98,6 +101,13 @@ export default {
     // 组件创建完后获取数据，
     // 此时 data 已经被 observed 了
     var _this = this;
+     eventBus.$on('loadSuccess', text => {
+      _this.show = true;
+      _this.status = 'loadSuccess'
+      if (text) {
+        _this.text = text;
+      }
+    })
     _this.fetchData()
   },
   watch: {
@@ -141,7 +151,6 @@ export default {
 //    },
     // 监听事件也发生了变化,需要指向一个子组件实例
     slide(pagenum){
-      console.log(pagenum);
     }
   },
   mounted(){
