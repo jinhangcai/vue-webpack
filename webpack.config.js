@@ -22,14 +22,9 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this nessessary.
             'scss': 'vue-style-loader!css-loader!sass-loader',
-            // 'less':'vue-style-loader!css-loader!less-loader',
             'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
           }
-          // other vue-loader options go here
         }
       },
       {
@@ -46,10 +41,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        //loader:ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
-
-
-      //loader: ExtractTextPlugin.extract({loader:"style-loader"},{ loader:"css-loader"})
         loader: 'style-loader!css-loader'
       },
       {
@@ -76,6 +67,7 @@ module.exports = {
       'stylus':path.join(__dirname,'./src/stylus'),
       'router':"vue-router/dist/vue-router.js",
       'vue-slider':'vue-slider/dist/vue-slider.js',
+      'Vuex':'vuex/dist/vuex.min.js',
       'VueCoreImageUpload':'vue2.x-core-image-upload/src/vue.core.image.upload.vue',
       'script':path.join(__dirname,'./src/script'),
       'jquery':path.join(__dirname,'./src/script/jquery'),

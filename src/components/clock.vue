@@ -451,7 +451,7 @@
         },
         //销毁
         destroyed() {
-            eventBus.$emit('loadSuccess', '添加成功！');
+//            eventBus.$emit('loadSuccess', '添加成功！');
         },
         mounted(){
             var _this = this;

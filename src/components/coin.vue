@@ -6,8 +6,12 @@
                     <img src="https://img3.doubanio.com/icon/user_large.jpg" alt="包菜头">
                 </div>
                 <div class="holder">分享生活点滴...</div>
-                <router-link to="/coin/cast1" class="list-group-item icon icon-camera">我的广播</router-link>
-                <router-link to="/coin/cast" class="list-group-item icon icon-camera">所有广播</router-link>
+                <span @click='radioIn'>
+                    <a  class="list-group-item icon icon-camera" :style="Color">我的广播</a>
+                </span>
+                <span @click='radioall'>
+                <router-link to="/coin/cast" class="list-group-item icon icon-camera" :style="Color1">所有广播</router-link>
+                </span>
             </div>
             <router-view></router-view>
             <div class="pull-refresh-loading"></div>
@@ -115,10 +119,38 @@
         data(){
             return{
                 msg:'hello vue',
+                Color:{
+                    color:'#aaa'
+                },
+                Color1:{
+                    color:'red'
+                },
             }
         },
         computed :{
 
+        },
+        methods:{
+            radioall(e){
+                //所有广播
+                var _this = this;
+
+                _this.Color.color = '#aaa';
+                _this.Color1.color = 'red';
+            },
+            radioIn(e){
+                //我的广播
+                var _this = this;
+                console.log(store.state.login)
+                if(!store.state.login){
+                    routers.push('login');
+                    return;
+                }else{
+                    routers.push('/coin/cast1');
+                }
+                _this.Color.color = 'red';
+                _this.Color1.color = '#aaa';
+            }
         },
         mounted(){
             var _this = this;

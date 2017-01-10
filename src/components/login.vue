@@ -4,12 +4,12 @@
             <div class="header">
                 <span class="title">豆瓣</span>
             </div>
-            <h1>    <router-link to="/mario" class="list-group-item">取消</router-link>登录豆瓣</h1>
+            <h1> <span @click='go'><a class="list-group-item">取消</a></span>登录豆瓣</h1>
             <div class="mobile-accounts">
                     <div class="form-element form-element-first">
                         <label>
                             <strong>帐号</strong>
-                            <input type="text" name="form_email" placeholder="邮箱 / 手机号 / 用户名" value="" style="border-top:1px solid #ccc;" v-model='text'>
+                            <input type="text" name="form_email" placeholder="邮箱 / 手机号" value="" style="border-top:1px solid #ccc;" v-model='text'>
                         </label>
                     </div>
                     <div class="form-element form-pwd">
@@ -137,24 +137,57 @@
     }
 </style>
 <script>
+import PoP  from 'module/dialog'
+var popwait = new PoP('wait');
 export default{
     data(){
         return{
             msg:'hello vue',
             text:'',
-            psd:''
+            psd:'',
+            from:'1312312312'
         }
     },
     computed :{
     },
     methods:{
-        gotologin:function(){
+        gotologin(){
             var _this = this;
-            console.log(_this.text,_this.psd)
+            var phone=/^1[34578]\d{9}$/,
+                email=/(^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+$)|(^$)/;
+            if(_this.text == '' || _this.psd == ''){
+                return;
+            }
+            if((phone.test(_this.text) || email.test(_this.text))){
+                if(_this.psd.length < 6){
+                    popwait.run({
+                        contStr: '密码错误'
+                    });
+                }
+                store.commit('increment');
+                routers.push(_this.from)
+            }else{
+                popwait.run({
+                    contStr: '帐号错误'
+                });
+            }
+        },
+        go(){
+            routers.go(-1);
         }
     },
+    beforeRouteEnter (to, from, next) {
+        // 在渲染该组件的对应路由被 confirm 前调用
+        // 不！能！获取组件实例 `this`
+        // 因为当钩子执行前，组件实例还没被创建
+        next(vm=>{
+            vm.from = from.fullPath;
+        })
+    },
     mounted(){
-        var _this = this
+        var _this = this;
+        _this.text = '';
+        _this.psd = '';
     }
 }
 </script>

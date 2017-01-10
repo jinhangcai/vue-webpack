@@ -28,9 +28,9 @@
         </ul>
         <div class="navBottom">
             <div class="nav-item">
-                <a class="toUser" href="javascript:;">包菜头</a>
-                <router-link to="/login" class="list-group-item">登录</router-link>
-                <a class="toExit" href="javascript:;">退出豆瓣</a>
+                <router-link to="/login" class="list-group-item" v-if='!login'>登录</router-link>
+                <a class="toExit" href="javascript:;" @click='exit'  v-else>退出豆瓣</a>
+                <a class="toUser" href="javascript:;">豆瓣</a>
             </div>
             <div class="nav-item">
                 <a class="toPC" href="javascript:;">使用桌面版</a>
@@ -109,15 +109,23 @@
 export default{
     data(){
         return{
-            msg:'hello vue'
+            msg:'hello vue',
+            login:store.state.login
         }
     },
     computed :{
 
 
     },
+    methods:{
+      exit(){
+          var _this = this;
+          store.commit('exit');
+          _this.login = store.state.login;
+      }
+    },
     mounted(){
-        var _this = this
+        var _this = this;
     }
 }
 </script>

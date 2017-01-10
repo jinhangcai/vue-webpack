@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuex from 'Vuex'
 //import index from 'components/App.vue'
 //import clock from 'components/clock.vue'
 //import coin from 'components/coin.vue'
@@ -9,10 +10,23 @@ import VueRouter from 'router'
 import 'jquery'
 import  'stylus/test.css'
 Vue.use(VueRouter);
+Vue.use(Vuex);
 //{path:'/clock',component:function(resolve){
 //
 //},name:'电影'},
-var routers = new VueRouter({
+
+
+window.store = new Vuex.Store({
+  state: {
+    login:false
+  },
+  mutations: {
+    increment:state=>state.login = true,
+    exit:state=>state.login = false
+  }
+});
+
+window.routers = new VueRouter({
   mode:'history',
   base:__dirname,
   routes:[
@@ -21,14 +35,14 @@ var routers = new VueRouter({
     {path:'/clock',component:function(resolve){require(['components/clock.vue'],resolve);},name:'电影'},
     {path:'/coin',component:function(resolve){require(['components/coin.vue'],resolve);}, name:'广播',
       children:[
-        { path: '', component: function(resolve){require(['components/cast.vue'],resolve);} },
+        { path: '', component: function(resolve){require(['components/cast.vue'],resolve);}, name:'广播' },
         {
           path: 'cast',
-          component: function(resolve){require(['components/cast.vue'],resolve);}
+          component: function(resolve){require(['components/cast.vue'],resolve)},name:'广播'
         },
         {
           path: 'cast1',
-          component: function(resolve){require(['components/cast1.vue'],resolve);}
+          component: function(resolve){require(['components/cast1.vue'],resolve);}, name:'广播'
         }
      ]
     },
@@ -39,8 +53,6 @@ var routers = new VueRouter({
 });
 //event bus
 window.eventBus = new Vue();
-
-
 var app = new Vue({
   data () {
     return {

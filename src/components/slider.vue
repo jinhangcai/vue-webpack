@@ -5,13 +5,15 @@
     position: relative;
     z-index: 1;
 }
- .slider-container {
+.slider-container {
     height: 400px;
     margin: 0 auto;
     width: 100%;
-    }
+    position: relative;
+    white-space: nowrap;
+}
 .slider-center-center{
-		margin: auto;
+	margin: auto;
     z-index: 1;
     position: absolute;
     top: 0;
@@ -21,17 +23,30 @@
 }
 .slider-wrapper {
     box-sizing: content-box;
-    display: flex;
+    /*display: flex;*/
     height: 100%;
     position: relative;
     transition-property: transform;
     width: 100%;
     z-index: 1;
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 0;
+    line-height: 0;
 }
 /*垂直*/
 .swiper-container-vertical > .slider-wrapper{
+  /*flex-direction: column;*/
+  /* 09版 */
+  -webkit-box-orient: vertical;
+  /* 12版 */
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
   flex-direction: column;
 }
+
 
 .slider-item {
     flex-shrink: 0;
@@ -42,11 +57,12 @@
 .slider-item {
     align-items: center;
     background: #fff none repeat scroll 0 0;
-    display: flex;
+    /*display: flex;*/
     font-size: 40px;
     justify-content: center;
     text-align: center;
     color: #fff;
+    display: inline-block;
 }
 .slider-item {
     background-position: center center!important;
@@ -126,6 +142,7 @@
     width: 100%;
     }
 }
+
 </style>
 <template>
     <div class='slider-container' :class = 'basicdata.containerClass'>
