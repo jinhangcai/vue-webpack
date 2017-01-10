@@ -1,7 +1,7 @@
 # vue+vue-router+webpack
 
 > 使用vue开发，webpack打包，vue-router路由开发的仿造豆瓣写的一个单页面
-> 首页滑动组件使用了vue-slider组件
+首页滑动组件使用了vue-slider组件
 
 ## Build Setup
 
