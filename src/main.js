@@ -30,6 +30,7 @@ window.routers = new VueRouter({
   mode:'history',
   base:__dirname,
   routes:[
+    {path:'/',redirect: '/test/index',component:function(resolve){require(['components/App.vue'],resolve);},name:'首页'},
     {path:'/test',redirect: '/test/index',component:function(resolve){require(['components/App.vue'],resolve);},name:'首页'},
     {path:'/test/index',component:function(resolve){require(['components/App.vue'],resolve);},name:'首页'},
     {path:'/test/clock',component:function(resolve){require(['components/clock.vue'],resolve);},name:'电影'},
@@ -37,11 +38,11 @@ window.routers = new VueRouter({
       children:[
         { path: '', component: function(resolve){require(['components/cast.vue'],resolve);}, name:'广播' },
         {
-          path: 'cast',
+          path: '/test/coin/cast',
           component: function(resolve){require(['components/cast.vue'],resolve)},name:'广播'
         },
         {
-          path: 'cast1',
+          path: '/test/coin/cast1',
           component: function(resolve){require(['components/cast1.vue'],resolve);}, name:'广播'
         }
      ]

@@ -10,7 +10,7 @@
                     <a  class="list-group-item icon icon-camera" :style="Color">我的广播</a>
                 </span>
                 <span @click='radioall'>
-                <router-link to="/coin/cast" class="list-group-item icon icon-camera" :style="Color1">所有广播</router-link>
+                <router-link to="/test/coin/cast" class="list-group-item icon icon-camera" :style="Color1">所有广播</router-link>
                 </span>
             </div>
             <router-view></router-view>
@@ -134,7 +134,6 @@
             radioall(e){
                 //所有广播
                 var _this = this;
-
                 _this.Color.color = '#aaa';
                 _this.Color1.color = 'red';
             },
@@ -142,10 +141,10 @@
                 //我的广播
                 var _this = this;
                 if(!store.state.login){
-                    routers.push('login');
+                    routers.push('/test/login');
                     return;
                 }else{
-                    routers.push('/coin/cast1');
+                    routers.push('/test/coin/cast1');
                 }
                 _this.Color.color = 'red';
                 _this.Color1.color = '#aaa';
