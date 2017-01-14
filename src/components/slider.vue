@@ -53,6 +53,7 @@
     height: 100%;
     position: relative;
     width: 100%;
+    line-height:200px;
 }
 .slider-item {
     align-items: center;

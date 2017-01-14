@@ -141,7 +141,6 @@
             radioIn(e){
                 //我的广播
                 var _this = this;
-                console.log(store.state.login)
                 if(!store.state.login){
                     routers.push('login');
                     return;

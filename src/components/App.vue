@@ -68,24 +68,6 @@ export default {
           style:{
             'background':'#1bbc9b'
           }
-        },
-        {
-          title: 'slide2',
-          style:{
-            'background':'#1bbc9b'
-          }
-        },
-        {
-          title: 'slide3',
-          style:{
-            'background':'#1bbc9b'
-          }
-        },
-        {
-          title: 'slide4',
-          style:{
-            'background':'#1bbc9b'
-          }
         }
       ],
       //滑动配置
@@ -160,16 +142,17 @@ export default {
     }
   },
   mounted(){
+    console.log(11111)
     var _this = this;
     var slideImgList = eval($('#slideImgList').val());
-//    _this.someList = [];
-//    slideImgList.forEach(function(e){
-//      var obj = {};
-//      obj.title ='';
-//      obj.style={};
-//      obj.style.background='url('+e.fullShowUrl+')';
-//      _this.someList.push(obj)
-//    });
+    _this.someList = [];
+    slideImgList.forEach(function(e){
+      var obj = {};
+      obj.title ='';
+      obj.style={};
+      obj.style.background='url('+e.fullShowUrl+')';
+      _this.someList.push(obj)
+    });
 
 //用原型链写的滑动事件
 //    new slider({

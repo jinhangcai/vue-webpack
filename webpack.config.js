@@ -1,15 +1,25 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+//__dirname是node里面的一个变量，指向的是当前文件夹目录
+var ROOT_PATH = path.resolve(__dirname);
+//这个我们的文件入口，等下我们就会从main.js这个文件作为入口
+var APP_PATH = path.resolve(ROOT_PATH, 'src/main');
+var APP_PATH = path.resolve(ROOT_PATH, 'src/main');
+//这个是文件打包出来的输出路径
+var BUILD_PATH = path.resolve(ROOT_PATH, './test/');
+
 module.exports = {
   //页面入口文件配置
-  entry: './src/main.js',
+  entry: [APP_PATH],
   //页面输出文件配置
   output: {
     //输出目录
-    path: path.resolve(__dirname, './dist'),
+    path: BUILD_PATH,
     //在index中匹配
-    publicPath: '/dist/',
+    publicPath: '/test/',
     //输出的js名称
     filename: 'build.js',
     chunkFilename:'[id].build.js?[chunkhash]'
@@ -34,6 +44,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
+        //loader: 'url-loader?limit=100000',
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -55,6 +66,13 @@ module.exports = {
       'window.jQuery': "jquery",
       jQuery: "jquery",
       $: "jquery"
+    }),
+    new HtmlWebpackPlugin({
+      title: '首页',
+      inject: false,
+      template: path.join(__dirname, './index.html'),
+      filename: 'index.html'
+      //chunks: ['signPhone', 'vendor']
     })
   ],
   resolve: {

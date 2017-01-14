@@ -30,10 +30,10 @@ window.routers = new VueRouter({
   mode:'history',
   base:__dirname,
   routes:[
-    {path:'/',redirect: '/index',component:function(resolve){require(['components/App.vue'],resolve);},name:'首页'},
-    {path:'/index',component:function(resolve){require(['components/App.vue'],resolve);},name:'首页'},
-    {path:'/clock',component:function(resolve){require(['components/clock.vue'],resolve);},name:'电影'},
-    {path:'/coin',component:function(resolve){require(['components/coin.vue'],resolve);}, name:'广播',
+    {path:'/test',redirect: '/test/index',component:function(resolve){require(['components/App.vue'],resolve);},name:'首页'},
+    {path:'/test/index',component:function(resolve){require(['components/App.vue'],resolve);},name:'首页'},
+    {path:'/test/clock',component:function(resolve){require(['components/clock.vue'],resolve);},name:'电影'},
+    {path:'/test/coin',component:function(resolve){require(['components/coin.vue'],resolve);}, name:'广播',
       children:[
         { path: '', component: function(resolve){require(['components/cast.vue'],resolve);}, name:'广播' },
         {
@@ -46,8 +46,8 @@ window.routers = new VueRouter({
         }
      ]
     },
-    {path:'/mario',component:function(resolve){require(['components/mario.vue'],resolve)},name:'我的'},
-    {path:'/login',component:function(resolve){require(['components/login.vue'],resolve)},name:'登录'}
+    {path:'/test/mario',component:function(resolve){require(['components/mario.vue'],resolve)},name:'我的'},
+    {path:'/test/login',component:function(resolve){require(['components/login.vue'],resolve)},name:'登录'}
 
   ]
 });

@@ -25,14 +25,15 @@
                     </div>
                     <div class="feed-card article-card has-cover has-subtitle">
                         <a href="javascript:;">
-                            <div class="title">{{arr.status.card.title}}</div>
+                            <div class="title" v-if='arr.status.card'>{{arr.status.card.title}}</div>
+                            <div class="title" v-else>{{arr.status.text}}</div>
                             <div class="detail has-cover" style="padding-right: 90px;"  v-if='arr.status.card && arr.status.card.image && arr.status.card.image.large'>
                                 <div class="text">{{arr.status.card.subtitle}}</div>
                                 <div class="cover" :style="{backgroundImage: 'url(' + arr.status.card.image.large.url + ')'}"></div>
                             </div>
                             <template v-else>
                                 <div class="detail has-cover" style="padding-right: 0">
-                                    <div class="text">{{arr.status.card.subtitle}}</div>
+                                    <div class="text" v-if='arr.status.card'>{{arr.status.card.subtitle}}</div>
                                     <!--<div class="cover" :style="{backgroundImage: 'url(' + arr.status.card.image.large.url + ')'}"></div>-->
                                 </div>
                             </template>
@@ -244,7 +245,6 @@ export default {
               dataType:'jsonp',
               processData: false,
               type:'get',
-
               success:function(data){
                   _this.array = data;
                   _this.pageLoading = true;
