@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5b7a01c3-47fe-4042-a6ca-8f0afc8041a0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="vue-webpack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -323,7 +322,7 @@
       <workItem from="1484399323811" duration="1652000" />
       <workItem from="1484450873682" duration="4962000" />
       <workItem from="1484465831430" duration="1924000" />
-      <workItem from="1484470993841" duration="126000" />
+      <workItem from="1484470993841" duration="142000" />
     </task>
     <task id="LOCAL-00001" summary="wepback">
       <created>1482323189027</created>
@@ -402,11 +401,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484470822750</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="修改.md文件">
+      <created>1484471124304</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1484471124304</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74487000" />
+    <option name="totallyTimeSpent" value="74503000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="0" />
