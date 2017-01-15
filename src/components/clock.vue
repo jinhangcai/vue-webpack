@@ -396,6 +396,10 @@
     }
 </style>
 <script>
+import json1 from '../json/clock1.json'
+import json2 from '../json/clock2.json'
+import json3 from '../json/clock3.json'
+console.log(json1)
     export default{
         name:'clock',
         data(){
@@ -420,33 +424,11 @@
         methods :{
             fetchData(){
                 var _this = this;
-                $.ajax({
-                    url:'/src/json/clock1.json',
-                    type:'get',
-                    async:false,
-                    dataType: "json",   //返回的数据类型
-                    success:function(data){
-                       _this.hit = data;
-                        $.ajax({
-                            url:'/src/json/clock2.json',
-                            type:'get',
-                            async:false,
-                            dataType: "json",   //返回的数据类型
-                            success:function(data){
-                                _this.free = data;
-                                $.ajax({
-                                    url:'/src/json/clock3.json',
-                                    type:'get',
-                                    dataType: "json",   //返回的数据类型
-                                    success:function(data){
-                                        _this.film = data;
-                                        _this.pageLoading = true;
-                                    }
-                                })
-                            }
-                        });
-                    }
-                });
+                _this.hit = json1;
+                _this.free = json2;
+                _this.film = json3;
+                _this.pageLoading = true;
+                console.log(1,_this.pageLoading )
             }
         },
         //销毁
