@@ -37,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
-              <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+              <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -323,7 +323,7 @@
       <workItem from="1484399323811" duration="1652000" />
       <workItem from="1484450873682" duration="4962000" />
       <workItem from="1484465831430" duration="1924000" />
-      <workItem from="1484470993841" duration="476000" />
+      <workItem from="1484470993841" duration="521000" />
     </task>
     <task id="LOCAL-00001" summary="wepback">
       <created>1482323189027</created>
@@ -416,11 +416,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484471140609</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="修改.md文件">
+      <created>1484471474071</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1484471474071</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74837000" />
+    <option name="totallyTimeSpent" value="74882000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="0" />
@@ -842,7 +849,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
-          <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
           <folding />
         </state>
       </provider>
