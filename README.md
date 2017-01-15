@@ -14,5 +14,6 @@ npm run dev
 npm run dist
 ps:
 ----------------
-1:这个项目不是跑的本地根文件,而是在根项目上的test文件，如有需要把路由下的test删除或自己在根目录下创建一个test文件
-2:跑本地环境，请在package.json文件中把dev --host 的ip改成自己对应的ip名，默认本地ip(127.0.0.1)
+1:这个项目不是跑的本地根文件,而是在根项目上的test文件，如有需要把路由下的test删除或自己在根目录下创建一个test文件<br>
+2:跑本地环境，请在package.json文件中把dev --host 的ip改成自己对应的ip名，默认本地ip(127.0.0.1)<br>
+3:如想看项目线上地址 请[点击](http://domcai.coding.me/test)
