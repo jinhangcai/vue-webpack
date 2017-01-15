@@ -187,14 +187,14 @@ export default {
      data(){
      	return {
      		basicdata:{
-     			poswidth:'0',
-          posheight:'0',
-          start: {},
-          end: {},
-          tracking: false,
-     			animation:{
-     				'animation-ease':false,
-     			},
+     		poswidth:'0',
+            posheight:'0',
+            start: {},
+            end: {},
+            tracking: false,
+            animation:{
+                'animation-ease':false,
+            },
           containerClass:{
             'swiper-container-vertical':false,
           },
