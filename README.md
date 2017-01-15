@@ -1,7 +1,8 @@
 # vue+vue-router+webpack
 介绍
 ----------------
-> 使用vue开发，webpack打包，vue-router路由开发的仿造H5豆瓣写的一个单页面 首页滑动组件使用了vue-slider组件
+> 使用vue开发，webpack打包，vue-router路由开发的仿造H5豆瓣写的一个单页面 首页滑动组件使用了vue-slider组件<br>
+该项目的接口数据是用的豆瓣公开接口，而接口里有些图片和文案禁止访问(403),所以有图片报错情况或者不出现情况不必奇怪
 项目依赖
 ----------------
 该项目使用webpack构建工具 全局安装webpack npm install webpack
