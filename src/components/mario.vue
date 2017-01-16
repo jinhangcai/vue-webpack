@@ -28,7 +28,7 @@
         </ul>
         <div class="navBottom">
             <div class="nav-item">
-                <router-link to="/login" class="list-group-item" v-if='!login'>登录</router-link>
+                <router-link to="/test/login" class="list-group-item" v-if='!login'>登录</router-link>
                 <a class="toExit" href="javascript:;" @click='exit'  v-else>退出豆瓣</a>
                 <a class="toUser" href="javascript:;">豆瓣</a>
             </div>
