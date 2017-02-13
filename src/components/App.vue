@@ -14,7 +14,7 @@
         <!--<button @click="slideNext">下一页</button>-->
         <!--<button @click="appendslider">添加一页</button>-->
         <!--<button @click="turnTo(2)">跳转到第三页</button>-->
-        <div class="feed-section" style="width: 100%;height: 8.4rem;overflow: scroll;">
+        <div class="feed-section" style="width: 100%;height: 7.4rem;overflow: scroll;">
           <template v-if='!pageLoading'>
             <!--<section id="pageLoading" ></section>-->
             <div class="pageloading"></div>
@@ -22,21 +22,21 @@
           <template v-else v-for ='arr in array.recommend_feeds'>
               <a href="javascript:;" class="feed-item">
                 <div class="author">
-                  <div class="avatar" :style="{backgroundImage: 'url(' + arr.author.avatar + ')'}">
-                    <!--<img :src='arr.author.avatar'>-->
-                    <div style="padding-top: 100%;"></div>
-                  </div>
-                  <span class="name">{{arr.author.name}}</span>
+                  <!--<div class="avatar" :style="{backgroundImage: 'url(' + arr.target.cover_url + ')'}">-->
+                    <!--&lt;!&ndash;<img :src='arr.author.avatar'>&ndash;&gt;-->
+                    <!--<div style="padding-top: 100%;"></div>-->
+                  <!--</div>-->
+                  <!--<span class="name">{{arr.author.name}}</span>-->
                 </div>
-                <span class="feed-label">{{arr.column.name}}</span>
+                <!--<span class="feed-label">{{arr.column.name}}</span>-->
                 <div class="feed-content">
-                  <div class="cover" :style="{backgroundImage: 'url(' + arr.cover_url + ')'}">
+                  <div class="cover" :style="{backgroundImage: 'url(' + arr.target.cover_url + ')'}">
                     <div style="padding-top: 100%;"></div>
                   </div>
                   <h3>{{arr.title}}</h3>
-                  <p>{{arr.desc}}</p>
+                  <p>{{arr.target.desc}}</p>
                 </div>
-                <div class="feed-info"></div>
+                <div class="feed-info" style='font-size:12px;color:#ccc;'>by{{arr.target.author.name}}</div>
               </a>
           </template>
         </div>
@@ -237,7 +237,7 @@ export default {
             margin-top:10px;
             float: right;
             position: relative;
-            background-size:100%
+            background-size:100% 100%
           }
           h3{
             text-align: justify;
